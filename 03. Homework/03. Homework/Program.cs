@@ -13,7 +13,8 @@ namespace _03.Homework
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             bool Menu = true;
             char MenuChoice;
-            Client[] client = new Client[0];
+            List<Client> clients = new List<Client>();
+            EventService @event = new EventService();
 
             while (Menu)
             {
@@ -21,6 +22,8 @@ namespace _03.Homework
                 Console.WriteLine("0. Вихід");
                 Console.WriteLine("1. Додати клієнта");
                 Console.WriteLine("2. Переглянути список клієнтів");
+                Console.WriteLine("3. Додати захід");
+                Console.WriteLine("4. Переглянути список заходів");
                 Console.Write("Ваш вибір -> ");
                 MenuChoice = Convert.ToChar(Console.ReadLine());
 
@@ -56,16 +59,30 @@ namespace _03.Homework
                             }
                         } while (CorrectPhoneNumber != true);
                         Client Person = new Client(Name, PhoneNumber);
-                        Array.Resize(ref client, client.Length + 1);
-                        client[client.Length - 1] = Person;
+                        clients.Add(Person);
                         break;
                     case '2':
                         Console.Clear();
-                        if (client.Length != 0)
+                        if (clients.Count != 0)
                         {
-                            foreach (Client item in client)
+                            foreach (Client item in clients)
                             {
                                 Console.WriteLine(item.ToString());
+                            }
+                        }
+                        break;
+                    case '3':
+                        Console.Clear();
+                        @event.AddEvent();
+                        break;
+                    case '4':
+                        Console.Clear();
+                        if(@event.Events.Count != 0)
+                        {
+                            foreach (Event item in @event.Events)
+                            {
+                                Console.WriteLine(item.ToString());
+                                Console.WriteLine();
                             }
                         }
                         break;
