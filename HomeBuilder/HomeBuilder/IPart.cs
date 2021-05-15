@@ -8,5 +8,7 @@ namespace HomeBuilder
 {
     interface IPart
     {
+        string GetWorkingPart();
+        string GetMaterialType(Enum material);
     }
 }

@@ -9,9 +9,19 @@ namespace HomeBuilder
     enum BasementType
     {
         Tape = 0,
-
+        Columnar,
+        Solid
     }
-    class Basement
+    class Basement : IPart
     {
+        public string GetMaterialType(Enum material)
+        {
+            return $"material :  {material.ToString()}";
+        }
+
+        public string GetWorkingPart()
+        {
+            return $"is working on:  {GetType().Name.ToLower()}";
+        }
     }
 }

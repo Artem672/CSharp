@@ -8,5 +8,6 @@ namespace HomeBuilder
 {
     interface IWorker
     {
+        void Working();
     }
 }

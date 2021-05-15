@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace HomeBuilder
 {
-    class Roof
+    public enum RoofMaterial
     {
+        slate = 0,
+        straw
+    }
+    class Roof : IPart
+    {
+        public string GetMaterialType(Enum material)
+        {
+            return $"material :  {material.ToString()}";
+        }
+
+        public string GetWorkingPart()
+        {
+            return $"is working on:  {GetType().Name.ToLower()}";
+        }
     }
 }

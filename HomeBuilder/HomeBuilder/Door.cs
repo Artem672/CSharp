@@ -13,7 +13,16 @@ namespace HomeBuilder
         Wood,
         Profile
     }
-    class Door
+    class Door : IPart
     {
+        public string GetMaterialType(Enum material)
+        {
+            return $"material :  {material.ToString()}";
+        }
+
+        public string GetWorkingPart()
+        {
+            return $"is working on:  {GetType().Name.ToLower()}";
+        }
     }
 }

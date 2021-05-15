@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace HomeBuilder
 {
-    class Window
+    public enum WindowMaterial
     {
+        Aluminium = 0,
+        Vinyl,
+        Fiberglass,
+        Fibrex
+    }
+    class Window : IPart
+    {
+        public string GetMaterialType(Enum material)
+        {
+            return $"material :  {material.ToString()}";
+        }
+
+        public string GetWorkingPart()
+        {
+            return $"is working on:  {GetType().Name.ToLower()}";
+        }
     }
 }
